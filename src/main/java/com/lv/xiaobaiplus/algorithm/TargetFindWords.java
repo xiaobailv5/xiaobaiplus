@@ -19,8 +19,7 @@ public class TargetFindWords {
 
 
     public static void main(String[] args) {
-//        String[] words = {"hello","world","leetcode"};
-//        String target = "welldonehoneyr";
+
         String[] words = {"abcd","defg","defga"};
         String target = "abcdefg";
         System.out.println(findLongestWord(target, words));
@@ -28,15 +27,31 @@ public class TargetFindWords {
 
     private static String findLongestWord(String target, String[] words) {
 
-        //创建一个list存储符合条件的字符串
-        List<String> list = new ArrayList<>();
-        for (String word : words) {
-            if(target.contains(word)) {
-                list.add(word);
-            }
-        }
 
-        String maxStr = "";
+        String reStr = "";
+
+        for(String word : words) {
+            if(target.contains(word)) {
+                //1 前面长   0 等于   -1 后面长
+                int l = Integer.compare(reStr.length(),word.length());
+                if( l< 0) {
+                    reStr = word;
+                }else if (l == 0) {
+                    // 长度相等，比较字典序
+                    int l2 = reStr.compareTo(word);
+                    if(l2 > 0) {
+                        reStr = word;
+                    }
+                }
+
+            }
+
+        }
+        return reStr;
+
+
+
+        /*String maxStr = "";
         //没有任何符合条件的子串，则返回空字符串""
         if (list.size() == 0) {
             return maxStr;
@@ -54,6 +69,6 @@ public class TargetFindWords {
             }
         });
 
-        return list.get(0);
+        return list.get(0);*/
     }
 }

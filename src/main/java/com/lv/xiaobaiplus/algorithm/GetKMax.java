@@ -1,9 +1,5 @@
 package com.lv.xiaobaiplus.algorithm;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * @program: xiaobaiPlus
@@ -24,17 +20,17 @@ public class GetKMax {
 
     private static int getKMax(int[] arr, int k) {
         //冒泡排序
-        int left = 0;
-        int right = arr.length - 1;
-        while (left < right) {
-            int mid = arr[left];
-            arr[left] = arr[right];
-            arr[right] = mid;
-            left++;
-            right--;
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = 0; j < arr.length-1-i; j++) {
+                if(arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
         }
         //工具排序
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
 
         return arr[k];
     }
