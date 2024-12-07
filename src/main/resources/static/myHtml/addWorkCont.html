@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="名榜,wangid">
+    <title>WangID办公管理系统</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/children.css">
+
+    <!-- 在线图标库 地址：http://fontawesome.dashgame.com/-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- layui css -->
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    
+</head>
+
+<body>
+    <div class="wangid_conbox">
+        <!-- 内容 -->
+        <!--<div class="wenxts_ke">
+            <p><i>温馨提示：</i>添加客户保护后，如果在保护期内没能搞定客户，保护期结束后就不在受保护</p>
+        </div>-->
+        
+        <div class="kehubh_tj_k">
+            <form class="layui-form layui-form-pane" action="">
+            <ul>
+                <li>
+                    <h4 class="header-title m-t-0 m-b-30">本周工作内容&nbsp;&nbsp;&nbsp;&nbsp;上报周期：<span id="zhouqi"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="workTime">正常工时（人天）：</label>
+                        <input class="layui-input" id="workTime" type="number" class="" style="width:80px;height:30px;display: inline;" placeholder="0"   min="0" max="5" required  disabled/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="leave">请假天数（人天）：</label>
+                        <input class="layui-input" id="leave" type="number" class="" style="width:80px;height:30px;display: inline;" placeholder="0"  min="0" max="5" required />
+                    </h4>
+                    <div >
+                        <textarea id="workloadDoc" style="width: 98%"  name="" required lay-verify="required" placeholder="请输入" rows="12" class="layui-textarea"></textarea>
+                    </div>
+                </li>
+                <hr />
+                <hr />
+
+                <div class="card-box">
+                    <h4 class="header-title m-t-0 m-b-30">本周加班备注&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="overtime">加班时长（小时）：</label>
+<!--
+                        <input id="overtime" type="number" class="" style="width:80px;display: inline;" placeholder="0"   min="0" max="16" required  disabled/>
+-->
+                        <input class="layui-input" id="overtime" type="number" class="" style="width:80px;height:30px;display: inline;" placeholder="0"   min="0" max="16" required  disabled/>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </h4>
+                </div>
+                <div id="remark-list">
+
+                </div>
+            </ul> 
+            </form>
+            <div class="right">
+                <button id="addWork" type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+            </div>
+        </div>
+    </div>   
+    
+	<!-- houl --> 
+	<!-- 结束 -->
+    <!-- layui js -->
+    <script src="../layui/layui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
+    <script type="text/javascript" src="../assets/js/component/ajax/ajax.js" ></script>
+    <script type="text/javascript" src="../assets/myjs/addWork.js" ></script>
+
+
+    
+</body>
+
+</html>
+
