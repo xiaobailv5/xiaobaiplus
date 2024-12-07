@@ -26,10 +26,7 @@ public class TargetFindWords {
     }
 
     private static String findLongestWord(String target, String[] words) {
-
-
         String reStr = "";
-
         for(String word : words) {
             if(target.contains(word)) {
                 //1 前面长   0 等于   -1 后面长
@@ -48,8 +45,6 @@ public class TargetFindWords {
 
         }
         return reStr;
-
-
 
         /*String maxStr = "";
         //没有任何符合条件的子串，则返回空字符串""
