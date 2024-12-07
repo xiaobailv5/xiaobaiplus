@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lv.xiaobaiplus.dao.base.WorkloadDao">
+
+    <select id="queryWorkload" resultType="map">
+        SELECT * FROM `workload` WHERE 1=1
+        <if test='userId != nulll and userId != ""'>
+            and userId =#{userId}
+        </if>
+        <if test='work_dataId != nulll and work_dataId != ""'>
+            and work_dataId =#{work_dataId}
+        </if>
+        <if test='project != null and project != ""'>
+            and project =#{project}
+        </if>
+
+    </select>
+
+    <select id="queryWorkloadById" resultType="map">
+        SELECT * FROM `workload` WHERE workloadId =#{workloadId}
+    </select>
+
+
+    <select id="checkWorkList" parameterType="java.lang.String" resultType="map">
+        SELECT period,username,checkCont,remark FROM `checklist` WHERE  checkCont=#{name}
+    </select>
+    <select id="queryworkData" parameterType="java.lang.String" resultType="map">
+        SELECT b.* FROM `work_data_base` b ,  workload w  WHERE  w.work_dataId= b.work_dataId AND workloadId=#{workloadId}
+    </select>
+    <select id="queryWorkDataBase"  resultType="map">
+        SELECT * FROM  `work_data_base` where 1=1
+        <if test='project != null and project != ""'>
+            and project =#{project}
+        </if>
+        ORDER BY work_dataId DESC
+    </select>
+
+
+<!--    <insert id="insertWorkload" parameterType="java.util.List" >
+        UPDATE `workload`
+        SET `workCont` = #{name}, `remark` = #{name} , `overTime` = #{name} , `workTime` = #{name} , `username` = #{name} , `fileflag` = #{name} , `updateTime` = #{name}
+         WHERE  `workloadId` = #{name};
+    </insert>-->
+    <update id="updateWorkload">
+        update workload
+        <set>
+            workCont = #{workCont},
+            remark = #{remark},
+            overTime = #{overTime},
+            workTime = #{workTime},
+            flag = #{flag},
+            updateTime = #{updateTime},
+        </set>
+        where `workloadId` =#{workloadId};
+    </update>
+    <update id="editCoe">
+        UPDATE `work_data_base`
+        <set>
+            `coe` = #{coe}
+        </set>
+        where `work_dataId` = #{work_dataId};
+    </update>
+
+    <insert id="insertChecklist" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT INTO checklist
+        ( checkId,workloadId,period,username,checkCont,remark)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.checkId},
+            #{item.workloadId},
+            #{item.period},
+            #{item.username},
+            #{item.checkCont},
+            #{item.remark}
+            )
+        </foreach>
+    </insert>
+
+    <select id="queryperiodById"  resultType="map">
+        SELECT period,project FROM  `work_data_base` where  period =#{period}  and project=#{project}
+    </select>
+    <insert id="insertPeriod" parameterType="map" >
+        INSERT INTO work_data_base
+        (work_dataId,period,staffName,project,updataTime)
+        values
+            (#{work_dataId},
+            #{period},
+            #{staffName},
+            #{project},
+            #{updataTime}
+            )
+    </insert>
+</mapper>

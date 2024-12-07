@@ -7,7 +7,7 @@ $(function() {// 初始化内容
         var laypage = layui.laypage;
         var data;  //保存数据
         var postData={
-            url:"http://localhost:8080/user/queryUserInfo",
+            url:"http://localhost:18090/user/queryUserInfo",
             async:false,
             data:{
                 work_dataId:"2021090620210912",
@@ -106,7 +106,7 @@ $(function() {// 初始化内容
                     // offset: 'rb', //右下角弹出
                     // time: 2000, //2秒后自动关闭
                     anim: 5,//动画
-                    content: ['http://localhost:8080/images/bg_default.jpg', 'no'], //iframe的url，no代表不显示滚动条
+                    content: ['http://localhost:18090/images/bg_default.jpg', 'no'], //iframe的url，no代表不显示滚动条
                     //content: '<div style="text-align:center"><img src="' + $("images/jl.jpg").attr('src') + '" /></div>'
                 });
             }

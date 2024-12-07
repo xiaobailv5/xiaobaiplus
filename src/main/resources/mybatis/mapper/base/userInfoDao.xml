@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lv.xiaobaiplus.dao.base.UserInfoDao">
+
+    <select id="getUserInfo" parameterType="java.lang.String" resultType="com.lv.xiaobaiplus.bean.web.User">
+            SELECT * FROM `userinfo` WHERE userId =#{userId}
+    </select>
+    <select id="getAllUserInfo"  resultType="map">
+        SELECT id,userId,phoneNum,username,project,entryTime,leaveTime,workStartTime,outTime,userId,IdCard,edu,headIcon,userId,userInfoZip,role,resume FROM `userinfo` WHERE 1=1
+        <if test='workStartTime != nulll and workStartTime != ""'>
+            and workStartTime IS NOT NULL
+        </if>
+        <if test='outTime != nulll and outTime != ""'>
+            and outTime IS NULL
+        </if>
+
+    </select>
+
+
+
+</mapper>

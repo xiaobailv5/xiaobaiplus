@@ -21,7 +21,7 @@ $(function() {// 初始化内容
         var laypage = layui.laypage;
         var data;  //保存数据
         var postData={
-            url:"http://localhost:8080/workload/queryWorkload",
+            url:"http://localhost:18090/workload/queryWorkload",
             async:false,
             data:{
                 work_dataId:work_dataId,

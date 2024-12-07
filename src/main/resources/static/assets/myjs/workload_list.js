@@ -89,7 +89,7 @@ $(function() {// 初始化内容
                     return;
                 }
                 var postData={
-                    url:"http://localhost:8080/workload/addPeriodById",
+                    url:"http://localhost:18090/workload/addPeriodById",
                     async:false,
                     data:{
                         project:project,
@@ -132,7 +132,7 @@ $(function() {// 初始化内容
 
         var data;  //保存数据
         var postData={
-            url:"http://localhost:8080/workload/queryWorkDataBase",
+            url:"http://localhost:18090/workload/queryWorkDataBase",
             async:false,
             data:{
                 name:"NULL",
@@ -195,7 +195,7 @@ $(function() {// 初始化内容
         function importData(data,repeat){
             var default_config = {
                 msg:"数据导入成功！",
-                uploadUrl:"http://localhost:8080/import/importData"
+                uploadUrl:"http://localhost:18090/import/importData"
 
             };
             // $.extend( default_config);
@@ -280,7 +280,7 @@ $(function() {// 初始化内容
             } else if(layEvent === 'edit'){
                 layer.prompt({title: '请输出本周运营系数', formType: 0}, function(pass, index){
                     var config={
-                        url:"http://localhost:8080/workload/editCoe",
+                        url:"http://localhost:18090/workload/editCoe",
                         data:{
                             "coe":pass,
                             "work_dataId":obj.data.work_dataId
